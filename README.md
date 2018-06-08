@@ -1,0 +1,1 @@
+# imgly-image-preview-extension
