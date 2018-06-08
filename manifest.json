@@ -1,0 +1,50 @@
+{
+
+  "manifest_version": 2,
+
+  "name": "Imgly - Image Previewer",
+
+  "web_accessible_resources": [
+    "css/*",
+    "js/*",
+    "icons/*"
+  ],
+
+  "description": "Upgrade Chrome's default image preview functionality.",
+  "version": "1.1",
+
+  "browser_action": {
+    "default_icon": "icons/imgly-192.png",
+    "default_title": "Imgly - Image Previewer"
+  },
+
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "cookies",
+    "activeTab",
+    "storage",
+    "tabs",
+    "clipboardWrite",
+    "clipboardRead",
+    "http://*/*",
+    "https://*/*",
+    "file:///*"
+  ],
+
+  "icons": {
+    "48": "icons/imgly-48.png",
+    "64": "icons/imgly-64.png",
+    "192": "icons/imgly-192.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*.png", "file:///*/*.png", "*://*/*.png?*", "*://*/*.jpg", "file:///*/*.jpg", "*://*/*.jpg?*", "*://*/*.jpeg", "*://*/*.jpeg?*", "*://*/*.gif", "*://*/*.gif?*", "file:///*.gif", "file:///*.gif?*", "*://*/*.apng", "*://*/*.apng?*", "*://*/*.webp", "*://*/*.webp?*", "*://*/*.bmp", "*://*/*.bmp?*", "*://*/*.svg", "*://*/*.svg?*"],
+      "exclude_matches": ["*://*.dropbox.com/*"],
+      "css": ["css/image_styles.css"],
+      "js": ["js/images.js"]
+    }
+  ]
+
+}
