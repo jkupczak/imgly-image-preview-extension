@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
 
-  "name": "Imgly - Image Previewer",
+  "name": "Mirage - Image Previewer",
 
   "web_accessible_resources": [
     "css/*",
@@ -11,11 +11,20 @@
   ],
 
   "description": "Upgrade Chrome's default image preview functionality.",
-  "version": "1.1",
+  "version": "0.2",
 
   "browser_action": {
-    "default_icon": "icons/imgly-192.png",
-    "default_title": "Imgly - Image Previewer"
+    "default_icon": "icons/mirage-256.png",
+    "default_title": "Mirage - Image Previewer"
+  },
+
+  "icons": {
+    "256": "icons/mirage-256.png"
+  },
+
+  "background": {
+    "scripts": ["js/eventPage.js"],
+    "persistent": true
   },
 
   "permissions": [
@@ -25,25 +34,26 @@
     "activeTab",
     "storage",
     "tabs",
+    "history",
+    "webNavigation",
+    "contextMenus",
     "clipboardWrite",
     "clipboardRead",
     "http://*/*",
     "https://*/*",
+    "*://*/*",
+    "*://*.google.com/*",
+    "notifications",
+    "alarms",
     "file:///*"
   ],
 
-  "icons": {
-    "48": "icons/imgly-48.png",
-    "64": "icons/imgly-64.png",
-    "192": "icons/imgly-192.png"
-  },
-
   "content_scripts": [
     {
-      "matches": ["*://*/*.png", "file:///*/*.png", "*://*/*.png?*", "*://*/*.jpg", "file:///*/*.jpg", "*://*/*.jpg?*", "*://*/*.jpeg", "*://*/*.jpeg?*", "*://*/*.gif", "*://*/*.gif?*", "file:///*.gif", "file:///*.gif?*", "*://*/*.apng", "*://*/*.apng?*", "*://*/*.webp", "*://*/*.webp?*", "*://*/*.bmp", "*://*/*.bmp?*", "*://*/*.svg", "*://*/*.svg?*"],
-      "exclude_matches": ["*://*.dropbox.com/*"],
-      "css": ["css/image_styles.css"],
-      "js": ["js/images.js"]
+      "matches": ["*://*/*"],
+      "css": ["css/preload.css"],
+      "js": ["js/arrive.js", "js/color-thief.min.js", "js/mirage.js"],
+      "run_at": "document_start"
     }
   ]
 

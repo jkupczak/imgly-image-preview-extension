@@ -1,1 +1,1 @@
-# imgly-image-preview-extension
+# mirage-image-preview-extension
