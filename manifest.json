@@ -3,30 +3,26 @@
   "manifest_version": 2,
 
   "name": "Mirage - Image Previewer",
+  "description": "Upgrade Chrome's default image preview functionality.",
+  "version": "0.2",
+
+
+
+  "icons": {
+    "256": "icons/icon-256.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/icon-256.png",
+    "default_title": "Mirage - Image Previewer"
+  },
+
+
 
   "web_accessible_resources": [
     "css/*",
     "js/*",
     "icons/*"
   ],
-
-  "description": "Upgrade Chrome's default image preview functionality.",
-  "version": "0.2",
-
-  "browser_action": {
-    "default_icon": "icons/mirage-256.png",
-    "default_title": "Mirage - Image Previewer"
-  },
-
-  "icons": {
-    "256": "icons/mirage-256.png"
-  },
-
-  "background": {
-    "scripts": ["js/eventPage.js"],
-    "persistent": true
-  },
-
   "permissions": [
     "webRequest",
     "webRequestBlocking",
@@ -48,6 +44,12 @@
     "file:///*"
   ],
 
+
+
+  "background": {
+    "scripts": ["js/eventPage.js"],
+    "persistent": true
+  },
   "content_scripts": [
     {
       "matches": ["*://*/*"],
